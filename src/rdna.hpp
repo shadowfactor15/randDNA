@@ -4,12 +4,21 @@
 
 using namespace std;
 
-string randDNA(int seed,string letterbase ,int length)
+string randDNA(int seed,string bases ,int n)
 {
   string DNA = "";
+  int min =0;
+  
+
+
   std::mt19937 eng(seed);
-  std::uniform_int_distribution<int>uniform(0,letterbase.size()-1);
-    for (int i=0;i < 20;i++)
-      DNA = DNA + letterbase[i];
+  std::uniform_int_distribution<int>uniform(min,bases.size()-1);
+  int index =0;
+  for(int i=0;i<n;i++)
+  {
+  index = uniform(eng);
+  DNA = DNA + bases[index];
+  }
           return DNA;
+
 }
